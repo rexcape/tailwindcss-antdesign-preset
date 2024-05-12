@@ -1,5 +1,6 @@
 const { theme } = require('antd')
 const kebabCase = require('lodash.kebabcase')
+const merge = require('lodash.merge')
 
 const replaceValue = (v) => {
   if (typeof v === 'string') {
@@ -70,49 +71,47 @@ const createPreset = (customTheme) => {
       if (matches) {
         const color = matches.groups.color
         const deg = matches.groups.deg || 'DEFAULT'
-        preset.theme.colors = {
-          ...preset.theme.colors,
+        merge(preset.theme.colors, {
           [color]: {
-            ...preset.theme.colors[color],
             [deg]: val,
           },
-        }
+        })
       }
     } else if (COLOR_EXTEND_REGEXP.test(k)) {
       const matches = COLOR_EXTEND_REGEXP.exec(k)
       if (matches) {
         const color = kebabCase(matches.groups.name)
-        Object.assign(preset.theme.extend.colors, { [color]: val })
+        merge(preset.theme.extend.colors, { [color]: val })
       }
     } else if (FONT_SIZE_REGEXP.test(k)) {
       const matches = FONT_SIZE_REGEXP.exec(k)
       if (matches) {
         const size = matches.groups?.size?.toLowerCase()?.replace('heading', 'h') || 'base'
-        Object.assign(preset.theme.fontSize, { [size]: val })
+        merge(preset.theme.fontSize, { [size]: val })
       }
     } else if (BORDER_RADIUS_REGEXP.test(k)) {
       const matches = BORDER_RADIUS_REGEXP.exec(k)
       if (matches) {
         const size = matches.groups?.size?.toLowerCase() || 'DEFAULT'
-        Object.assign(preset.theme.borderRadius, { [size]: val })
+        merge(preset.theme.borderRadius, { [size]: val })
       }
     } else if (PADDING_REGEXP.test(k)) {
       const matches = PADDING_REGEXP.exec(k)
       if (matches) {
         const size = kebabCase(matches.groups?.size || 'ad-default')
-        Object.assign(preset.theme.extend.padding, { [size]: val })
+        merge(preset.theme.extend.padding, { [size]: val })
       }
     } else if (MARGIN_REGEXP.test(k)) {
       const matches = MARGIN_REGEXP.exec(k)
       if (matches) {
         const size = kebabCase(matches.groups?.size || 'ad-default')
-        Object.assign(preset.theme.extend.margin, { [size]: val })
+        merge(preset.theme.extend.margin, { [size]: val })
       }
     } else if (BOX_SHADOW_REGEXP.test(k)) {
       const matches = BOX_SHADOW_REGEXP.exec(k)
       if (matches) {
         const name = kebabCase(matches.groups.name || 'ad-default')
-        Object.assign(preset.theme.extend.boxShadow, {
+        merge(preset.theme.extend.boxShadow, {
           [name]: val.replaceAll('\n    ', ''),
         })
       }
@@ -120,7 +119,7 @@ const createPreset = (customTheme) => {
       const matches = SIZE_REGEXP.exec(k)
       if (matches) {
         const size = kebabCase(matches.groups?.size || 'ad-default')
-        Object.assign(preset.theme.extend.size, { [size]: val })
+        merge(preset.theme.extend.size, { [size]: val })
       }
     } else if (SCREEN_REGEXP.test(k)) {
       if (k.endsWith('Min') || k.endsWith('Max')) {
@@ -129,13 +128,13 @@ const createPreset = (customTheme) => {
       const matches = SCREEN_REGEXP.exec(k)
       if (matches) {
         const size = matches.groups?.size.toLowerCase()
-        Object.assign(preset.theme.screens, { [size]: val })
+        merge(preset.theme.screens, { [size]: val })
       }
     } else if (LINE_HEIGHT_REGEXP.test(k)) {
       const matches = LINE_HEIGHT_REGEXP.exec(k)
       if (matches) {
         const size = matches.groups?.size?.toLowerCase() || 'ad-default'
-        Object.assign(preset.theme.extend.lineHeight, { [size]: val })
+        merge(preset.theme.extend.lineHeight, { [size]: val })
       }
     }
   }

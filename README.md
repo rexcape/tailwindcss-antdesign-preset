@@ -50,7 +50,7 @@ const config = {
 
 ### Copy file
 
-Copy [index.js](./src/index.js) to your project and use it. You need to install `lodash.kebabcase` to convert the `camelCase` tokens to tailwind's `kebab-case`(suggested)
+Copy [index.js](./src/index.js) to your project and use it. You need to install `lodash.kebabcase` to convert the `camelCase` tokens to tailwind's `kebab-case`(suggested) and `lodash.merge` to merge preset
 
 ## Default preset
 
