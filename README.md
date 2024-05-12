@@ -1,22 +1,34 @@
 # tailwindcss-antdesign-preset
 
-Make [ant design tokens](https://ant.design/docs/react/customize-theme#seedtoken) to a tailwindcss theme config [preset](https://ant.design/docs/react/customize-theme-cn#seedtoken).
+Make [ant design tokens](https://ant.design/docs/react/customize-theme#seedtoken) to a tailwindcss theme config [preset](https://tailwindcss.com/docs/presets)
 
-## Result
-
-| Before                        | After                       |
-| ----------------------------- | --------------------------- |
-| ![before](.github/before.png) | ![after](.github/after.png) |
+| Before                                                                                         | After                                                                                        |
+| ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| ![before](https://cdn.jsdelivr.net/gh/rexcape/tailwindcss-antdesign-preset/.github/before.png) | ![after](https://cdn.jsdelivr.net/gh/rexcape/tailwindcss-antdesign-preset/.github/after.png) |
 
 ## Usage
+
+### Prerequisites
+
+- `antd`: The antd package is installed
+- `tailwindcss`: The tailwindcss is installed and configured for your project
+
+### Install npm package
 
 Run the command:
 
 ```sh
-npm i --save-dev tailwindcss-antdesign-preset
+# npm
+npm i -D tailwindcss-antdesign-preset
+# yarn
+yarn add --dev tailwindcss-antdesign-preset
+# pnpm
+pnpm add -D tailwindcss-antdesign-preset
+# bun
+bun add --dev tailwindcss-antdesign-preset
 ```
 
-Add to tailwind.config.{ts|js}
+Add to `tailwind.config.js`(or `tailwind.config.ts`)
 
 Use the default theme:
 
@@ -35,6 +47,10 @@ const config = {
   // ...other settings
 }
 ```
+
+### Copy file
+
+Copy [index.js](./src/index.js) to your project and use it. You need to install `lodash.kebabcase` to convert the `camelCase` tokens to tailwind's `kebab-case`(suggested)
 
 ## Default preset
 
