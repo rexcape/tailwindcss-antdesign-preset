@@ -1,6 +1,12 @@
 # tailwindcss-antdesign-preset
 
-Make antdesign design tokens to a tailwindcss theme config preset.
+Make [ant design tokens](https://ant.design/docs/react/customize-theme#seedtoken) to a tailwindcss theme config [preset](https://ant.design/docs/react/customize-theme-cn#seedtoken).
+
+## Result
+
+| Before                        | After                       |
+| ----------------------------- | --------------------------- |
+| ![before](.github/before.png) | ![after](.github/after.png) |
 
 ## Usage
 
@@ -60,4 +66,4 @@ These ant design tokens extend tailwindcss theme config:
 | boxShadow\*                  | theme.extend.boxShadow.\*  | v          |
 | lineHeight\*                 | theme.extend.lineHeight.\* | v          |
 
-ad-default: you need use such as `padding-ad-default` for ant design default value
+ad-default: you need use such as `padding-ad-default` for ant design default value(padding)
