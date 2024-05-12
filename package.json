@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-antdesign-preset",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
   "files": [
@@ -9,7 +9,6 @@
   "scripts": {
     "test": "jest"
   },
-  "keywords": [],
   "author": "rexcape",
   "license": "MIT",
   "description": "A tailwindcss preset for ant design tokens",

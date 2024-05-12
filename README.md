@@ -58,16 +58,23 @@ Look at the [sample file](./src/sample.js)
 
 ## Available configs
 
+### Special
+
+I've found these special rules in my use. If you'v found a special rule, [issue](https://github.com/rexcape/tailwindcss-antdesign-preset/issues/new) or [pull request](https://github.com/rexcape/tailwindcss-antdesign-preset/compare) is welcomed
+
+- ant design token `colorIcon` to tailwindcss `theme.extend.color.iconc`(usage: `text-iconc`)
+  - explain: text-icon includes two styles in tailwindcss: `fontSize.icon` and `color.icon`. Split them for a better readability
+
 ### Override
 
 These ant design tokens override tailwindcss theme default values:
 
-| Ant Design                 | TailwindCSS Config                        | Example Usage |
-| -------------------------- | ----------------------------------------- | ------------- |
-| variant colors(blue, etc.) | theme.color.\*.{ [variant(1-10)]: color } | `color-blue`  |
-| fontSize\*                 | theme.fontSize.\*                         | `text-sm`     |
-| borderRadius\*             | theme.borderRadius.\*                     | `rounded-md`  |
-| screen\*                   | theme.screens.\*                          | `sm:`         |
+| Ant Design                 | TailwindCSS Config                        | Example Usage         |
+| -------------------------- | ----------------------------------------- | --------------------- |
+| variant colors(blue, etc.) | theme.color.\*.{ [variant(1-10)]: color } | `bg-blue`/`text blue` |
+| fontSize\*                 | theme.fontSize.\*                         | `text-sm`             |
+| borderRadius\*             | theme.borderRadius.\*                     | `rounded-md`          |
+| screen\*                   | theme.screens.\*                          | `sm:`                 |
 
 ### Extend
 

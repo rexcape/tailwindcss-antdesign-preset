@@ -281,7 +281,7 @@ module.exports = {
         highlight: '#ff4d4f',
         'bg-text-hover': 'rgba(0, 0, 0, 0.06)',
         'bg-text-active': 'rgba(0, 0, 0, 0.15)',
-        icon: 'rgba(0, 0, 0, 0.45)',
+        iconc: 'rgba(0, 0, 0, 0.45)',
         'icon-hover': 'rgba(0, 0, 0, 0.88)',
         'error-outline': 'rgba(255, 38, 5, 0.06)',
         'warning-outline': 'rgba(255, 215, 5, 0.1)',

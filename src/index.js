@@ -80,7 +80,7 @@ const createPreset = (customTheme) => {
     } else if (COLOR_EXTEND_REGEXP.test(k)) {
       const matches = COLOR_EXTEND_REGEXP.exec(k)
       if (matches) {
-        const color = kebabCase(matches.groups.name)
+        const color = kebabCase(matches.groups.name).replace(/^icon$/, 'iconc')
         merge(preset.theme.extend.colors, { [color]: val })
       }
     } else if (FONT_SIZE_REGEXP.test(k)) {
