@@ -13,6 +13,11 @@
   "author": "rexcape",
   "license": "MIT",
   "description": "A tailwindcss preset for ant design tokens",
+  "homepage": "https://github.com/rexcape/tailwindcss-antdesign-preset",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rexcape/tailwindcss-antdesign-preset"
+  },
   "prettier": {
     "printWidth": 100,
     "semi": false,
