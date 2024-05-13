@@ -2,9 +2,29 @@
 
 Make [ant design tokens](https://ant.design/docs/react/customize-theme#seedtoken) to a tailwindcss theme config [preset](https://tailwindcss.com/docs/presets)
 
+Result on custom components
+
 | Before                                                                                         | After                                                                                        |
 | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | ![before](https://cdn.jsdelivr.net/gh/rexcape/tailwindcss-antdesign-preset/.github/before.png) | ![after](https://cdn.jsdelivr.net/gh/rexcape/tailwindcss-antdesign-preset/.github/after.png) |
+
+## NOTE
+
+You may need to add important flag for ant design component className in nextjs projects since the `globals.css` file is imported **before** ant design components style
+
+Here's the sample code:
+
+```tsx
+// This won't work
+<Button className="p-0 color-error">
+  Your Button
+</Button>
+
+// This works
+<Button className="!p-0 !color-error">
+  Your Button
+</Button>
+```
 
 ## Usage
 
