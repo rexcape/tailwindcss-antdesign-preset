@@ -79,7 +79,7 @@ const customTheme = {
   },
 }
 
-// Use it in your ThemeProvider Component
+// Use it in your ConfigProvider Component
 
 function Layout({ children }) {
   return <ConfigProvider theme={customTheme}>{children}</ConfigProvider>
