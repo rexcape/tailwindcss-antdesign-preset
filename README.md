@@ -16,14 +16,10 @@ Here's the sample code(only for example, the [danger attribute](https://ant.desi
 
 ```jsx
 // This won't work
-<Button className="p-0 bg-error">
-  Your Button
-</Button>
+const CustomAntButton = () => <Button className="p-0 bg-error">Custom Button</Button>
 
 // This works
-<Button className="!p-0 !bg-error">
-  Your Button
-</Button>
+const CustomAntButton = () => <Button className="!p-0 !bg-error">Custom Button</Button>
 ```
 
 ## Usage
