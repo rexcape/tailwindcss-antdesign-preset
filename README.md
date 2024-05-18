@@ -12,7 +12,7 @@ Result on custom components
 
 This package is used to make your custom components' design more consistent with ant design like above code. For ant design components's `className`, you may need to add [important modifier](https://tailwindcss.com/docs/configuration#important-modifier) in nextjs projects since the `globals.css` file is imported **before** ant design components style
 
-Here's the sample code(only for example, the [danger attribute](https://ant.design/components/button#components-button-demo-danger) is more suitble for red buttons):
+Here's the sample code(only for example, the [danger attribute](https://ant.design/components/button#components-button-demo-danger) is more suitable for red buttons):
 
 ```tsx
 // This won't work
