@@ -30,8 +30,12 @@ Here's the sample code(only for example, the [danger attribute](https://ant.desi
 
 ### Prerequisites
 
-- `antd`: The antd package is installed
-- `tailwindcss`: The tailwindcss is installed and configured for your project
+- `antd`: [`antd`](https://www.npmjs.com/package/antd) package(version > 5) is installed for your project
+- `tailwindcss`: [`tailwindcss`](https://www.npmjs.com/package/tailwindcss) is [installed and configured](https://tailwindcss.com/docs/installation) for your project
+
+### Copy file
+
+Copy [index.js](./src/index.js) to your project and use it. You need to install [`lodash.kebabcase`](https://www.npmjs.com/package/lodash.merge) to convert the `camelCase` tokens to tailwind's `kebab-case`(tailwind suggested) and [`lodash.merge`](https://www.npmjs.com/package/lodash.merge) to merge preset
 
 ### Install npm package
 
@@ -88,10 +92,6 @@ const config = {
   // ...other settings
 }
 ```
-
-### Copy file
-
-Copy [index.js](./src/index.js) to your project and use it. You need to install `lodash.kebabcase` to convert the `camelCase` tokens to tailwind's `kebab-case`(suggested) and `lodash.merge` to merge preset
 
 ## Default preset
 
