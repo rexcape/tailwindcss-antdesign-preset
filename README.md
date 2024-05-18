@@ -10,9 +10,9 @@ Result on custom components
 
 ## NOTE
 
-You may need to add important flag for ant design component className in nextjs projects since the `globals.css` file is imported **before** ant design components style
+This package is used to make your custom components' design more consistent with ant design like above code. For ant design components's `className`, you may need to add [important modifier](https://tailwindcss.com/docs/configuration#important-modifier) in nextjs projects since the `globals.css` file is imported **before** ant design components style
 
-Here's the sample code:
+Here's the sample code(only for example, the [danger attribute](https://ant.design/components/button#components-button-demo-danger) is more suitble for red buttons):
 
 ```tsx
 // This won't work
@@ -40,17 +40,20 @@ Run the command:
 ```sh
 # npm
 npm i -D tailwindcss-antdesign-preset
+
 # yarn
 yarn add --dev tailwindcss-antdesign-preset
+
 # pnpm
 pnpm add -D tailwindcss-antdesign-preset
+
 # bun
 bun add --dev tailwindcss-antdesign-preset
 ```
 
 Add to `tailwind.config.js`(or `tailwind.config.ts`)
 
-Use the default theme:
+### Use default theme
 
 ```js
 const config = {
@@ -59,9 +62,27 @@ const config = {
 }
 ```
 
-Use custom theme:
+### Use custom theme
 
-```js
+You can use ant design's [theme config object](https://ant.design/docs/react/customize-theme#theme) to define custom theme. Here's the example:
+
+```jsx
+// Define your theme somewhere
+
+const customTheme = {
+  token: {
+    colorPrimary: '#00b96b',
+  },
+}
+
+// Use it in your ThemeProvider Component
+
+function Layout({ children }) {
+  return <ConfigProvider theme={customTheme}>{children}</ConfigProvider>
+}
+
+// Use it in tailwind css config
+
 const config = {
   presets: [require('tailwindcss-antdesign-preset')(customTheme)],
   // ...other settings
