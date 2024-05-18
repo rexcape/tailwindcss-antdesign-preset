@@ -14,14 +14,14 @@ This package is used to make your custom components' design more consistent with
 
 Here's the sample code(only for example, the [danger attribute](https://ant.design/components/button#components-button-demo-danger) is more suitable for red buttons):
 
-```tsx
+```jsx
 // This won't work
-<Button className="p-0 color-error">
+<Button className="p-0 bg-error">
   Your Button
 </Button>
 
 // This works
-<Button className="!p-0 !color-error">
+<Button className="!p-0 !bg-error">
   Your Button
 </Button>
 ```
@@ -51,9 +51,9 @@ pnpm add -D tailwindcss-antdesign-preset
 bun add --dev tailwindcss-antdesign-preset
 ```
 
-Add to `tailwind.config.js`(or `tailwind.config.ts`)
-
 ### Use default theme
+
+Add to `tailwind.config.js`(or `tailwind.config.ts`)
 
 ```js
 const config = {
