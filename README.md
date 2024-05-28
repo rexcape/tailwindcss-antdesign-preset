@@ -91,7 +91,7 @@ const config = {
 
 ## Default preset
 
-Look at the [sample file](./src/sample.js)
+Look at the [sample file](./src/sample.js) or [preview page](https://rexcape.github.io/tailwindcss-antdesign-preset/)
 
 ## Available configs
 
