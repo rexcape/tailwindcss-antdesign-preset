@@ -26,7 +26,7 @@ html(lang="en")
           li
             .grid
               .font-mono.text-xs.leading-5.pb-1.border-b.border-slate-200.text-slate-500= `text-${fontSize}`
-              .col-start-2.text-right.text-right.font-mono.text-xs.leading-5.text-slate-400.pb-1.border-b.border-slate-200= fontSizeVal
+              .col-start-2.text-right.font-mono.text-xs.leading-5.text-slate-400.pb-1.border-b.border-slate-200= fontSizeVal
               .mt-4.col-span-2.text-slate-900&attributes({style: `font-size: ${fontSizeVal};`}) The quick brown fox jumps over the lazy dog
     h2.text-xl.font-semibold.my-4 borderRadius (override)
     div
@@ -35,7 +35,7 @@ html(lang="en")
           li
             .grid
               .font-mono.text-xs.leading-5.pb-1.border-b.border-slate-200.text-slate-500= borderRadius === 'DEFAULT' ? 'rounded' : `rounded-${borderRadius}`
-              .col-start-2.text-right.text-right.font-mono.text-xs.leading-5.text-slate-400.pb-1.border-b.border-slate-200= borderRadiusVal
+              .col-start-2.text-right.font-mono.text-xs.leading-5.text-slate-400.pb-1.border-b.border-slate-200= borderRadiusVal
               .mt-4.col-span-2.flex.justify-center.items-center
                 .size-8.bg-indigo-500(class="xs:size-4")&attributes({style: `border-radius: ${borderRadiusVal};`})
     h2.text-xl.font-semibold.my-4 screens (override)
