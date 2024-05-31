@@ -1,3 +1,5 @@
+const { test, describe } = require('node:test')
+const assert = require('node:assert/strict')
 const createPreset = require('.')
 
 test('it works', () => {
@@ -8,42 +10,42 @@ describe('parse default theme', () => {
   const result = createPreset()
 
   test('result has colors', () => {
-    expect(Object.entries(result.theme.colors).length).toBeGreaterThan(0)
+    assert(Object.entries(result.theme.colors).length > 0)
   })
 
   test('result has extend colors', () => {
-    expect(Object.entries(result.theme.extend.colors).length).toBeGreaterThan(0)
+    assert(Object.entries(result.theme.extend.colors).length > 0)
   })
 
   test('result has font size', () => {
-    expect(Object.entries(result.theme.fontSize).length).toBeGreaterThan(0)
+    assert(Object.entries(result.theme.fontSize).length > 0)
   })
 
   test('result has border radius', () => {
-    expect(Object.entries(result.theme.borderRadius).length).toBeGreaterThan(0)
+    assert(Object.entries(result.theme.borderRadius).length > 0)
   })
 
   test('result has padding', () => {
-    expect(Object.entries(result.theme.extend.padding).length).toBeGreaterThan(0)
+    assert(Object.entries(result.theme.extend.padding).length > 0)
   })
 
   test('result has margin', () => {
-    expect(Object.entries(result.theme.extend.margin).length).toBeGreaterThan(0)
+    assert(Object.entries(result.theme.extend.margin).length > 0)
   })
 
   test('result has size', () => {
-    expect(Object.entries(result.theme.extend.size).length).toBeGreaterThan(0)
+    assert(Object.entries(result.theme.extend.size).length > 0)
   })
 
   test('result has box shadow', () => {
-    expect(Object.entries(result.theme.extend.boxShadow).length).toBeGreaterThan(0)
+    assert(Object.entries(result.theme.extend.boxShadow).length > 0)
   })
 
   test('result has screens', () => {
-    expect(Object.entries(result.theme.screens).length).toBeGreaterThan(0)
+    assert(Object.entries(result.theme.screens).length > 0)
   })
 
   test('result has line height', () => {
-    expect(Object.entries(result.theme.extend.lineHeight).length).toBeGreaterThan(0)
+    assert(Object.entries(result.theme.extend.lineHeight).length > 0)
   })
 })
