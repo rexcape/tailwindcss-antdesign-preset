@@ -3,8 +3,8 @@
   "version": "0.1.4",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -w ./src -e pug,css,js -x \"npm run build\"",
-    "build": "node ./src/build.js && postcss src/style.css -o dist/style.css"
+    "dev": "node --watch-path src src/build.js",
+    "build": "node src/build.js"
   },
   "author": "rexcape",
   "license": "MIT",
@@ -12,7 +12,6 @@
     "@tailwindcss/typography": "^0.5.13",
     "autoprefixer": "^10.4.19",
     "cssnano": "^7.0.1",
-    "nodemon": "^3.1.1",
     "postcss": "^8.4.38",
     "postcss-cli": "^11.0.0",
     "pug": "^3.0.3",
