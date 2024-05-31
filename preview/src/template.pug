@@ -7,7 +7,7 @@ html(lang="en")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
   body.bg-slate-100: div.container.px-4.pb-12(class="2xl:px-8")
     h2.section-title colors (override)
-    .grid.grid-cols-1.place-items-center.gap-6(class="sm:grid-cols-2 lg:grid-cols-4")
+    .grid.grid-cols-1.place-items-center.gap-6(class="sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6")
       each colorVal, colorKey in preset.theme.colors
         .grid.bg-white.text-slate-500.rounded-lg.shadow-lg.p-3
           .font-mono.text-xs= colorKey
