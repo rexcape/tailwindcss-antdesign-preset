@@ -8,7 +8,9 @@
     "./src/index.d.ts"
   ],
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "preview:dev": "cd ./preview && npm run dev",
+    "preview:build": "cd ./preview && npm run build"
   },
   "author": "rexcape",
   "license": "MIT",
