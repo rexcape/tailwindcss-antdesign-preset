@@ -8,7 +8,7 @@ const replaceValue = (v) => {
       v = v.toLowerCase()
     }
   } else if (typeof v === 'number') {
-    v = `${v.toFixed(5)}px`
+    v = `${Number(v.toFixed(3))}px`
   }
 
   return v
