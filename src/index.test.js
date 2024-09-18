@@ -8,6 +8,7 @@ test('it works', () => {
 
 describe('parse default theme', () => {
   const result = createPreset()
+  console.log(JSON.stringify(result, null, 2))
 
   test('result has colors', () => {
     assert(Object.entries(result.theme.colors).length > 0)

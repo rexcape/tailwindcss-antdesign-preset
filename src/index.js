@@ -8,7 +8,7 @@ const replaceValue = (v) => {
       v = v.toLowerCase()
     }
   } else if (typeof v === 'number') {
-    v = `${v}px`
+    v = `${v.toFixed(5)}px`
   }
 
   return v
@@ -82,7 +82,10 @@ const createPreset = (customTheme) => {
     } else if (COLOR_EXTEND_REGEXP.test(k)) {
       const matches = COLOR_EXTEND_REGEXP.exec(k)
       if (matches) {
-        const color = kebabCase(matches.groups.name).replace(/^icon$/, 'iconc')
+        const color = kebabCase(matches.groups.name)
+          .replace(/^icon$/, 'iconc')
+          .replace(/^text$/, 'textc')
+          .replace('bg-', '')
         merge(preset.theme.extend.colors, { [color]: val })
       }
     } else if (FONT_SIZE_REGEXP.test(k)) {
@@ -110,27 +113,27 @@ const createPreset = (customTheme) => {
     } else if (PADDING_REGEXP.test(k)) {
       const matches = PADDING_REGEXP.exec(k)
       if (matches) {
-        const size = kebabCase(matches.groups?.size || 'ad-default')
+        const size = kebabCase(matches.groups?.size || 'base')
         merge(preset.theme.extend.padding, { [size]: val })
       }
     } else if (MARGIN_REGEXP.test(k)) {
       const matches = MARGIN_REGEXP.exec(k)
       if (matches) {
-        const size = kebabCase(matches.groups?.size || 'ad-default')
+        const size = kebabCase(matches.groups?.size || 'base')
         merge(preset.theme.extend.margin, { [size]: val })
       }
     } else if (BOX_SHADOW_REGEXP.test(k)) {
       const matches = BOX_SHADOW_REGEXP.exec(k)
       if (matches) {
-        const name = kebabCase(matches.groups.name || 'ad-default')
+        const name = kebabCase(matches.groups.name || 'base')
         merge(preset.theme.extend.boxShadow, {
-          [name]: val.replaceAll('\n    ', ''),
+          [name]: val.replaceAll('\n', '').replaceAll(/\s+/g, ' ').trim(),
         })
       }
     } else if (SIZE_REGEXP.test(k)) {
       const matches = SIZE_REGEXP.exec(k)
       if (matches) {
-        const size = kebabCase(matches.groups?.size || 'ad-default')
+        const size = kebabCase(matches.groups?.size || 'base')
         merge(preset.theme.extend.size, { [size]: val })
       }
     } else if (SCREEN_REGEXP.test(k)) {
@@ -145,7 +148,7 @@ const createPreset = (customTheme) => {
     } else if (LINE_HEIGHT_REGEXP.test(k)) {
       const matches = LINE_HEIGHT_REGEXP.exec(k)
       if (matches) {
-        const size = matches.groups?.size?.toLowerCase() || 'ad-default'
+        const size = matches.groups?.size?.toLowerCase() || 'base'
         merge(preset.theme.extend.lineHeight, { [size]: val })
       }
     }

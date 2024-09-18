@@ -101,6 +101,8 @@ I've found these special rules in my use. If you'v found a special rule, [issue]
 
 - ant design token `colorIcon` to tailwindcss `theme.extend.color.iconc`(usage: `text-iconc`)
   - explain: text-icon includes two styles in tailwindcss: `fontSize.icon` and `color.icon`. Split them for a better readability
+- ant design token `colorText` to tailwindcss `theme.extend.color.textc`(usage: `text-textc`)
+  - explain: better readibility instead of `text-text`
 
 ### Override
 
@@ -118,13 +120,13 @@ These ant design tokens override tailwindcss theme default values:
 
 These ant design tokens extend tailwindcss theme config:
 
-| Ant Design                   | TailwindCSS Config         | ad-default |
-| ---------------------------- | -------------------------- | ---------- |
-| extend colors(colorBg, etc.) | theme.extend.color.\*      |            |
-| padding\*                    | theme.extend.padding.\*    | v          |
-| margin\*                     | theme.extend.margin.\*     | v          |
-| size\*                       | theme.extend.size.\*       | v          |
-| boxShadow\*                  | theme.extend.boxShadow.\*  | v          |
-| lineHeight\*                 | theme.extend.lineHeight.\* | v          |
+| Ant Design                   | TailwindCSS Config         | base |
+| ---------------------------- | -------------------------- | ---- |
+| extend colors(colorBg, etc.) | theme.extend.color.\*      |      |
+| padding\*                    | theme.extend.padding.\*    | v    |
+| margin\*                     | theme.extend.margin.\*     | v    |
+| size\*                       | theme.extend.size.\*       | v    |
+| boxShadow\*                  | theme.extend.boxShadow.\*  | v    |
+| lineHeight\*                 | theme.extend.lineHeight.\* | v    |
 
-ad-default: you need use such as `padding-ad-default` for ant design default value(padding)
+base: you need use such as `padding-base` for ant design default value(padding)
