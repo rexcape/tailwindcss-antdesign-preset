@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-antdesign-preset-preview",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "main": "index.js",
   "scripts": {
     "dev": "node --watch-path src src/build.js",
@@ -16,6 +16,6 @@
     "postcss-cli": "^11.0.0",
     "pug": "^3.0.3",
     "tailwindcss": "^3.4.12",
-    "tailwindcss-antdesign-preset": "^0.1.6"
+    "tailwindcss-antdesign-preset": "^0.1.7"
   }
 }
