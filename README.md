@@ -106,12 +106,13 @@ I've found these special rules in my use. If you'v found a special rule, [issue]
 
 These ant design tokens override tailwindcss theme default values:
 
-| Ant Design                 | TailwindCSS Config                        | Example Usage         |
-| -------------------------- | ----------------------------------------- | --------------------- |
-| variant colors(blue, etc.) | theme.color.\*.{ [variant(1-10)]: color } | `bg-blue`/`text blue` |
-| fontSize\*                 | theme.fontSize.\*                         | `text-sm`             |
-| borderRadius\*             | theme.borderRadius.\*                     | `rounded-md`          |
-| screen\*                   | theme.screens.\*                          | `sm:`                 |
+| Ant Design                 | TailwindCSS Config                        | Example Usage           |
+| -------------------------- | ----------------------------------------- | ----------------------- |
+| variant colors(blue, etc.) | theme.color.\*.{ [variant(1-10)]: color } | `bg-blue`/`text blue`   |
+| fontSize\*                 | theme.fontSize.\*                         | `text-sm`               |
+| fontFamily\*               | theme.fontFamily.\*                       | `font-mono`/`font-sans` |
+| borderRadius\*             | theme.borderRadius.\*                     | `rounded-md`            |
+| screen\*                   | theme.screens.\*                          | `sm:`                   |
 
 ### Extend
 

@@ -21,6 +21,10 @@ describe('parse default theme', () => {
     assert(Object.entries(result.theme.fontSize).length > 0)
   })
 
+  test('result has font family', () => {
+    assert(Object.entries(result.theme.fontFamily).length > 0)
+  })
+
   test('result has border radius', () => {
     assert(Object.entries(result.theme.borderRadius).length > 0)
   })
@@ -47,5 +51,14 @@ describe('parse default theme', () => {
 
   test('result has line height', () => {
     assert(Object.entries(result.theme.extend.lineHeight).length > 0)
+  })
+})
+
+describe('use custom fonts', () => {
+  test('css variable font(nextjs)', () => {
+    const token = { fontFamily: 'var(--font-sans)', fontFamilyCode: 'var(--font-mono)' }
+    const result = createPreset({ token })
+    assert(result.theme.fontFamily.sans, 'var(--font-sans)')
+    assert(result.theme.fontFamily.mono, 'var(--font-mono)')
   })
 })

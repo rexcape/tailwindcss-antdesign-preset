@@ -33,6 +33,7 @@ const COLORS = [
 const COLOR_REGEXP = new RegExp(`^(?<color>${COLORS.join('|')})-?(?<deg>\\d+)?$`)
 const COLOR_EXTEND_REGEXP = new RegExp('^color(?<name>\\w+)$')
 const FONT_SIZE_REGEXP = new RegExp('^fontSize(?<size>\\w+)?$')
+const FONT_FAMILY_REGEXP = new RegExp('^fontFamily(?<family>\\w+)?$')
 const BORDER_RADIUS_REGEXP = new RegExp('^borderRadius(?<size>\\w+)?$')
 const PADDING_REGEXP = new RegExp('^padding(?<size>\\w+)?$')
 const MARGIN_REGEXP = new RegExp('^margin(?<size>\\w+)?$')
@@ -48,6 +49,7 @@ const createPreset = (customTheme) => {
     theme: {
       colors: {},
       fontSize: {},
+      fontFamily: {},
       borderRadius: {},
       extend: {
         colors: {},
@@ -88,6 +90,16 @@ const createPreset = (customTheme) => {
       if (matches) {
         const size = matches.groups?.size?.toLowerCase()?.replace('heading', 'h') || 'base'
         merge(preset.theme.fontSize, { [size]: val })
+      }
+    } else if (FONT_FAMILY_REGEXP.test(k)) {
+      const matches = FONT_FAMILY_REGEXP.exec(k)
+      if (matches) {
+        const family = matches.groups?.family?.toLowerCase()
+        if (!family) {
+          merge(preset.theme.fontFamily, { sans: val.replaceAll('\n', ' ') })
+        } else if (family === 'code') {
+          merge(preset.theme.fontFamily, { mono: val })
+        }
       }
     } else if (BORDER_RADIUS_REGEXP.test(k)) {
       const matches = BORDER_RADIUS_REGEXP.exec(k)
