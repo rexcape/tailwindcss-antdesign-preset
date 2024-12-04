@@ -10,8 +10,6 @@ Result on custom components
 
 ## Preparation
 
-~~This package is used to make your custom components' design more consistent with ant design like above code. For ant design components's `className`, you may need to add [important modifier](https://tailwindcss.com/docs/configuration#important-modifier) in nextjs projects since the `globals.css` file is imported **before** ant design components style~~
-
 To make tailwindcss utility class work with ant design, please follow these steps or read [ant design doc](https://ant.design/docs/react/compatible-style#compatible-with-third-party-style-libraries)
 
 ### Wrap app with `StyleProvider`
