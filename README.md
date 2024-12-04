@@ -22,6 +22,8 @@ const CustomAntButton = () => <Button className="p-0 bg-error">Custom Button</Bu
 const CustomAntButton = () => <Button className="!p-0 !bg-error">Custom Button</Button>
 ```
 
+To make tailwindcss utility class work with ant design, please read [ant design doc](https://ant.design/docs/react/compatible-style#compatible-with-third-party-style-libraries)
+
 ## Usage
 
 ### Prerequisites
