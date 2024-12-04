@@ -1,6 +1,6 @@
 const { test, describe } = require('node:test')
 const assert = require('node:assert/strict')
-const createPreset = require('.')
+const createPreset = require('../src')
 
 test('it works', () => {
   createPreset()
