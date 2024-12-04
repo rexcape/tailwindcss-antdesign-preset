@@ -8,21 +8,66 @@ Result on custom components
 | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | ![before](https://cdn.jsdelivr.net/gh/rexcape/tailwindcss-antdesign-preset/.github/before.png) | ![after](https://cdn.jsdelivr.net/gh/rexcape/tailwindcss-antdesign-preset/.github/after.png) |
 
-## NOTE
+## Preparation
 
-This package is used to make your custom components' design more consistent with ant design like above code. For ant design components's `className`, you may need to add [important modifier](https://tailwindcss.com/docs/configuration#important-modifier) in nextjs projects since the `globals.css` file is imported **before** ant design components style
+~~This package is used to make your custom components' design more consistent with ant design like above code. For ant design components's `className`, you may need to add [important modifier](https://tailwindcss.com/docs/configuration#important-modifier) in nextjs projects since the `globals.css` file is imported **before** ant design components style~~
+
+To make tailwindcss utility class work with ant design, please follow these steps or read [ant design doc](https://ant.design/docs/react/compatible-style#compatible-with-third-party-style-libraries)
+
+### Wrap app with `StyleProvider`
+
+Add `@ant-design/cssinjs` dependency, run
+
+```sh
+# npm
+npm install @ant-design/cssinjs
+
+# yarn
+yarn add @ant-design/cssinjs
+
+# pnpm
+pnpm add @ant-design/cssinjs
+```
+
+Wrap app component with StyleProvider
+
+```jsx
+export default () => (
+  <StyleProvider layer>
+    <MyApp />
+  </StyleProvider>
+)
+```
+
+### Modify `global.css`
+
+In global.css, adjust `@layer` to control the order of style override. Place `tailwind-base` before `antd`:
+
+```css
+@layer tailwind-base, antd;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+@tailwind components;
+@tailwind utilities;
+```
+
+### Modify `reset.css`(optional)
+
+If you use antd's `reset.css` style, you need to specify `@layer` for it to prevent the style from overriding antd:
+
+```css
+@layer reset, antd;
+
+@import url(reset.css) layer(reset);
+```
 
 Here's the sample code(only for example, the [danger attribute](https://ant.design/components/button#components-button-demo-danger) is more suitable for red buttons):
 
 ```jsx
-// This won't work
-const CustomAntButton = () => <Button className="p-0 bg-error">Custom Button</Button>
-
-// This works
-const CustomAntButton = () => <Button className="!p-0 !bg-error">Custom Button</Button>
+const CustomAntButton = () => <Button className="p-0 bg-ant-error">Custom Button</Button>
 ```
-
-To make tailwindcss utility class work with ant design, please read [ant design doc](https://ant.design/docs/react/compatible-style#compatible-with-third-party-style-libraries)
 
 ## Usage
 
@@ -48,9 +93,6 @@ yarn add --dev tailwindcss-antdesign-preset
 
 # pnpm
 pnpm add -D tailwindcss-antdesign-preset
-
-# bun
-bun add --dev tailwindcss-antdesign-preset
 ```
 
 ### Use default theme
@@ -86,7 +128,7 @@ function Layout({ children }) {
 // Use it in tailwind css config
 
 const config = {
-  presets: [require('tailwindcss-antdesign-preset')(customTheme)],
+  presets: [require('tailwindcss-antdesign-preset')({ theme: customTheme })],
   // ...other settings
 }
 ```
@@ -101,10 +143,14 @@ Look at the [sample file](./src/sample.js) or [preview page](https://rexcape.git
 
 I've found these special rules in my use. If you'v found a special rule, [issue](https://github.com/rexcape/tailwindcss-antdesign-preset/issues/new) or [pull request](https://github.com/rexcape/tailwindcss-antdesign-preset/compare) is welcomed
 
-- ant design token `colorIcon` to tailwindcss `theme.extend.color.iconc`(usage: `text-iconc`)
-  - explain: text-icon includes two styles in tailwindcss: `fontSize.icon` and `color.icon`. Split them for a better readability
-- ant design token `colorText` to tailwindcss `theme.extend.color.textc`(usage: `text-textc`)
-  - explain: better readibility instead of `text-text`
+To avoid possible conflicts between [ant design semantic colors](https://ant.design/docs/react/customize-theme#maptoken) with tailwindcss utility classes, ant design semantic color token such as `colorBgSolid` will be converted into `theme.extend.colors['ant-bg-solid']`. Use it with `border-color-bg-solid` for example. Use it with `border-ant-bg-solid` for example. You can customize the prefix for a better meaning, such as color. Ant design color token `colorBgSolid` will be converted into `theme.extend.colors['color-bg-solid']`. Use it with `border-color-bg-solid` for example.
+
+```js
+const config = {
+  presets: [require('tailwindcss-antdesign-preset')({ theme: customTheme, colorPrefix: 'color' })],
+  // ...other settings
+}
+```
 
 ### Override
 
@@ -122,13 +168,13 @@ These ant design tokens override tailwindcss theme default values:
 
 These ant design tokens extend tailwindcss theme config:
 
-| Ant Design                   | TailwindCSS Config         | base |
-| ---------------------------- | -------------------------- | ---- |
-| extend colors(colorBg, etc.) | theme.extend.color.\*      |      |
-| padding\*                    | theme.extend.padding.\*    | v    |
-| margin\*                     | theme.extend.margin.\*     | v    |
-| size\*                       | theme.extend.size.\*       | v    |
-| boxShadow\*                  | theme.extend.boxShadow.\*  | v    |
-| lineHeight\*                 | theme.extend.lineHeight.\* | v    |
+| Ant Design                     | TailwindCSS Config         | base |
+| ------------------------------ | -------------------------- | ---- |
+| semantic colors(colorBg, etc.) | theme.extend.color.\*      |      |
+| padding\*                      | theme.extend.padding.\*    | v    |
+| margin\*                       | theme.extend.margin.\*     | v    |
+| size\*                         | theme.extend.size.\*       | v    |
+| boxShadow\*                    | theme.extend.boxShadow.\*  | v    |
+| lineHeight\*                   | theme.extend.lineHeight.\* | v    |
 
 base: you need use such as `padding-base` for ant design default value(padding)
