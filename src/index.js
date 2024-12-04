@@ -42,7 +42,13 @@ const BOX_SHADOW_REGEXP = new RegExp('^boxShadow(?<name>\\w+)?$')
 const SCREEN_REGEXP = new RegExp('^screen(?<size>\\w+)(Min|Max)?$')
 const LINE_HEIGHT_REGEXP = new RegExp('^lineHeight(?<size>\\w+)?$')
 
-const createPreset = (customTheme) => {
+const defaultPluginOptions = {
+  theme: undefined,
+  colorPrefix: 'antd',
+}
+
+const createPreset = (pluginOptions = defaultPluginOptions) => {
+  const { theme: customTheme, colorPrefix } = merge(defaultPluginOptions, pluginOptions)
   const tokens = theme.getDesignToken(customTheme)
 
   const preset = {
@@ -82,10 +88,7 @@ const createPreset = (customTheme) => {
     } else if (COLOR_EXTEND_REGEXP.test(k)) {
       const matches = COLOR_EXTEND_REGEXP.exec(k)
       if (matches) {
-        const color = kebabCase(matches.groups.name)
-          .replace(/^icon$/, 'iconc')
-          .replace(/^text$/, 'textc')
-          .replace('bg-', '')
+        const color = `${colorPrefix}-${kebabCase(matches.groups.name)}`
         merge(preset.theme.extend.colors, { [color]: val })
       }
     } else if (FONT_SIZE_REGEXP.test(k)) {

@@ -18,6 +18,10 @@ describe('parse default theme', () => {
     assert(Object.entries(result.theme.extend.colors).length > 0)
   })
 
+  test('extend colors has the right name', () => {
+    assert(Object.entries(result.theme.extend.colors).every((item) => item[0].startsWith('antd-')))
+  })
+
   test('result has font size', () => {
     assert(Object.entries(result.theme.fontSize).length > 0)
   })
@@ -58,8 +62,20 @@ describe('parse default theme', () => {
 describe('use custom fonts', () => {
   test('css variable font(nextjs)', () => {
     const token = { fontFamily: 'var(--font-sans)', fontFamilyCode: 'var(--font-mono)' }
-    const result = createPreset({ token })
+    const result = createPreset({ theme: { token } })
     assert(result.theme.fontFamily.sans, 'var(--font-sans)')
     assert(result.theme.fontFamily.mono, 'var(--font-mono)')
+  })
+})
+
+describe('use custom color prefix', () => {
+  test('custom color prefix works', () => {
+    const customColorPrefix = 'color'
+    const result = createPreset({ colorPrefix: customColorPrefix })
+    assert(
+      Object.entries(result.theme.extend.colors).every((item) =>
+        item[0].startsWith(customColorPrefix + '-')
+      )
+    )
   })
 })
