@@ -2,8 +2,8 @@ import type { ThemeConfig } from 'antd'
 import { Config } from 'tailwindcss'
 
 export interface PluginOptions {
-  theme: ThemeConfig
-  colorPrefix: string
+  theme?: ThemeConfig
+  colorPrefix?: string
 }
 
 /**
