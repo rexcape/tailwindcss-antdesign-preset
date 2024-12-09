@@ -38,6 +38,8 @@ jobs:
           cache: npm
           cache-dependency-path: webapp/package-lock.json
       - name: Install Dependencies
+        run: npm install
+      - name: Install Webapp Dependencies
         run: |
           cd webapp
           npm install
