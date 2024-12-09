@@ -20,7 +20,7 @@ const App = () => {
     <ConfigProvider theme={theme}>
       <StyleProvider layer>
         <AntdApp>
-          <BrowserRouter>
+          <BrowserRouter basename="tailwindcss-antdesign-preset">
             <Routes>
               <Route element={<PageLayout />}>
                 <Route path="/" element={<GeneratorPage />} />

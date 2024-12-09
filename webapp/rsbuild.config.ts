@@ -28,4 +28,8 @@ export default defineConfig({
       },
     },
   },
+
+  server: {
+    base: '/tailwindcss-antdesign-preset'
+  }
 })
