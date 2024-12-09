@@ -1,0 +1,99 @@
+@import url('https://fonts.cdnfonts.com/css/inter');
+@import url('https://fonts.cdnfonts.com/css/fira-mono');
+
+@layer tailwind-base, antd, custom;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@tailwind components;
+
+@layer custom {
+  @tailwind utilities;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply flex items-center;
+  }
+
+  #root,
+  .ant-app {
+    @apply w-screen h-screen overflow-auto flex flex-col;
+    @apply bg-antd-bg-layout;
+  }
+
+  *::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  *::-webkit-scrollbar-track {
+    @apply rounded bg-transparent;
+  }
+
+  *::-webkit-scrollbar-corner {
+    @apply rounded-br bg-transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply rounded-full;
+    @apply bg-antd-fill-secondary;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    @apply bg-antd-fill;
+  }
+}
+
+@layer components {
+  .demo-button {
+    @apply rounded text-antd-white border-2 border-transparent;
+
+    background-color: var(--demo-button-default);
+  }
+
+  .demo-button:hover {
+    background-color: var(--demo-button-hover);
+  }
+
+  .demo-button:active {
+    background-color: var(--demo-button-active);
+  }
+
+  .demo-button-plain {
+    @apply rounded border-2;
+
+    color: var(--demo-button-text);
+    border-color: var(--demo-button-border);
+    background-color: var(--demo-button-bg);
+  }
+
+  .demo-button-plain:hover {
+    color: var(--demo-button-textHover);
+    border-color: var(--demo-button-borderHover);
+    background-color: var(--demo-button-bgHover);
+  }
+
+  .demo-button-plain:active {
+    color: var(--demo-button-textActive);
+  }
+}
+
+@layer components {
+  .demo-link {
+    color: var(--demo-link-default);
+  }
+
+  .demo-link:hover {
+    color: var(--demo-link-hover);
+  }
+
+  .demo-link:active {
+    color: var(--demo-link-active);
+  }
+}
