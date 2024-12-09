@@ -51,7 +51,7 @@ const createPreset = (pluginOptions = defaultPluginOptions) => {
   const { theme: customTheme, colorPrefix } = {
     ...pluginOptions,
     ...defaultPluginOptions,
-    colorPrefix: pluginOptions?.colorPrefix ?? defaultPluginOptions.colorPrefix,
+    colorPrefix: pluginOptions?.colorPrefix || defaultPluginOptions.colorPrefix,
   }
 
   const tokens = theme.getDesignToken(customTheme)

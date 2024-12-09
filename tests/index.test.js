@@ -68,6 +68,13 @@ describe('use custom fonts', () => {
   })
 })
 
+describe('pass an empty color prefix', () => {
+  test('empty color prefix works', () => {
+    const result = createPreset({ colorPrefix: '' })
+    assert(Object.entries(result.theme.extend.colors).every((item) => item[0].startsWith('antd-')))
+  })
+})
+
 describe('use custom color prefix', () => {
   test('custom color prefix works', () => {
     const customColorPrefix = 'color'
