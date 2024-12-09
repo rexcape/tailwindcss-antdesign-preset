@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy preview page to GitHub Page
+name: Deploy webapp page to GitHub Page
 
 on:
   # Runs on pushes targeting the default branch
@@ -36,20 +36,20 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: preview/package-lock.json
+          cache-dependency-path: webapp/package-lock.json
       - name: Install Dependencies
         run: |
-          cd preview
+          cd webapp
           npm install
-      - name: Build Preview
-        run: npm run preview:build
+      - name: Build webapp
+        run: npm run webapp:build
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload dist directory
-          path: 'preview/dist'
+          path: 'webapp/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
