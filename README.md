@@ -42,13 +42,18 @@ export default () => (
 In global.css, adjust `@layer` to control the order of style override. Place `tailwind-base` before `antd`:
 
 ```css
-@layer tailwind-base, antd;
+@layer tailwind-base, antd, custom;
 
 @layer tailwind-base {
   @tailwind base;
 }
+
 @tailwind components;
-@tailwind utilities;
+
+@layer custom {
+  /* custom utilities will overwrite ant design css */
+  @tailwind utilities;
+}
 ```
 
 ### Modify `reset.css`(optional)
@@ -74,11 +79,17 @@ const CustomAntButton = () => <Button className="p-0 bg-ant-error">Custom Button
 - `antd`: [`antd`](https://www.npmjs.com/package/antd) package(version > 5) is installed for your project
 - `tailwindcss`: [`tailwindcss`](https://www.npmjs.com/package/tailwindcss) is [installed and configured](https://tailwindcss.com/docs/installation) for your project
 
-### Copy file
+### Use webapp(recommended)
+
+Open [webapp](https://rexcape.github.io/tailwindcss-antdesign-preset/) in a new tab, copy the json theme from [theme editor](https://ant.design/theme-editor)(Or just use the default theme). Click generate button. Copy and paste generated code into your tailwind config.
+
+You can modify the generated theme on yourself, so this method is the most customizable one.
+
+### Copy js file
 
 Copy [index.js](./src/index.js) to your project and use it. You need to install [`lodash.kebabcase`](https://www.npmjs.com/package/lodash.merge) to convert the `camelCase` tokens to tailwind's `kebab-case`(tailwind suggested) and [`lodash.merge`](https://www.npmjs.com/package/lodash.merge) to merge preset
 
-### Install npm package
+### Install npm package(cleaner config)
 
 Run the command:
 
@@ -141,7 +152,9 @@ Look at the [sample file](./src/sample.js) or [preview page](https://rexcape.git
 
 I've found these special rules in my use. If you'v found a special rule, [issue](https://github.com/rexcape/tailwindcss-antdesign-preset/issues/new) or [pull request](https://github.com/rexcape/tailwindcss-antdesign-preset/compare) is welcomed
 
-To avoid possible conflicts between [ant design semantic colors](https://ant.design/docs/react/customize-theme#maptoken) with tailwindcss utility classes, ant design semantic color token such as `colorBgSolid` will be converted into `theme.extend.colors['ant-bg-solid']`. Use it with `border-color-bg-solid` for example. Use it with `border-ant-bg-solid` for example. You can customize the prefix for a better meaning, such as color. Ant design color token `colorBgSolid` will be converted into `theme.extend.colors['color-bg-solid']`. Use it with `border-color-bg-solid` for example.
+To avoid possible conflicts between [ant design semantic colors](https://ant.design/docs/react/customize-theme#maptoken) with tailwindcss utility classes, ant design semantic color token such as `colorBgSolid` will be converted into `theme.extend.colors['ant-bg-solid']`. Use it with `border-ant-border`, `bg-ant-bg-solid` for example.
+
+You can customize the prefix for a better meaning, such as `color`. Ant design color token `colorBgSolid` will be converted into `theme.extend.colors['color-bg-solid']`. Use it with `border-color-bg-solid` for example.
 
 ```js
 const config = {
