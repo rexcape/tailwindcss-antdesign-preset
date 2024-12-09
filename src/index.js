@@ -48,7 +48,12 @@ const defaultPluginOptions = {
 }
 
 const createPreset = (pluginOptions = defaultPluginOptions) => {
-  const { theme: customTheme, colorPrefix } = merge(defaultPluginOptions, pluginOptions)
+  const { theme: customTheme, colorPrefix } = {
+    ...pluginOptions,
+    ...defaultPluginOptions,
+    colorPrefix: pluginOptions?.colorPrefix ?? defaultPluginOptions.colorPrefix,
+  }
+
   const tokens = theme.getDesignToken(customTheme)
 
   const preset = {
