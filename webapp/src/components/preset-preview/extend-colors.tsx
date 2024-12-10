@@ -18,7 +18,7 @@ const ExtendColorsPreview = ({ preset }: { preset: Partial<Config> }) => {
     <div className="grid grid-cols-1 gap-2">
       <div className="p-4 bg-white rounded">
         <div className="flex">
-          <h5 className="flex-1">primary</h5>
+          <h4 className="text-h4 flex-1">primary</h4>
           <div className="hidden md:block text-antd-text-description font-mono text-sm">
             Usage: text-{prefix}-primary-text, bg-{prefix}-primary-bg
           </div>
@@ -29,7 +29,7 @@ const ExtendColorsPreview = ({ preset }: { preset: Partial<Config> }) => {
       </div>
       <div className="p-4 bg-white rounded">
         <div className="flex">
-          <h5 className="flex-1">info</h5>
+          <h4 className="text-h4 flex-1">info</h4>
           <div className="hidden md:block text-antd-text-description font-mono text-sm">
             Usage: text-{prefix}-info-text, bg-{prefix}-info-bg
           </div>
@@ -40,7 +40,7 @@ const ExtendColorsPreview = ({ preset }: { preset: Partial<Config> }) => {
       </div>
       <div className="p-4 bg-white rounded">
         <div className="flex">
-          <h5 className="flex-1">success</h5>
+          <h4 className="text-h4 flex-1">success</h4>
           <div className="hidden md:block text-antd-text-description font-mono text-sm">
             Usage: text-{prefix}-success-text, bg-{prefix}-success-bg
           </div>
@@ -51,7 +51,7 @@ const ExtendColorsPreview = ({ preset }: { preset: Partial<Config> }) => {
       </div>
       <div className="p-4 bg-white rounded">
         <div className="flex">
-          <h5 className="flex-1">warning</h5>
+          <h4 className="text-h4 flex-1">warning</h4>
           <div className="hidden md:block text-antd-text-description font-mono text-sm">
             Usage: text-{prefix}-warning-text, bg-{prefix}-warning-bg
           </div>
@@ -62,7 +62,7 @@ const ExtendColorsPreview = ({ preset }: { preset: Partial<Config> }) => {
       </div>
       <div className="p-4 bg-white rounded">
         <div className="flex">
-          <h5 className="flex-1">error</h5>
+          <h4 className="text-h4 flex-1">error</h4>
           <div className="hidden md:block text-antd-text-description font-mono text-sm">
             Usage: text-{prefix}-error-text, bg-{prefix}-error-bg
           </div>
@@ -73,7 +73,7 @@ const ExtendColorsPreview = ({ preset }: { preset: Partial<Config> }) => {
       </div>
       <div className="p-4 bg-white rounded">
         <div className="flex">
-          <h5 className="flex-1">link</h5>
+          <h4 className="text-h4 flex-1">link</h4>
           <div className="hidden md:block text-antd-text-description font-mono text-sm">
             Usage: text-{prefix}-link, hover:text-{prefix}-link-hover
           </div>
@@ -84,7 +84,7 @@ const ExtendColorsPreview = ({ preset }: { preset: Partial<Config> }) => {
       </div>
       <div className="p-4 bg-white rounded">
         <div className="flex">
-          <h5 className="flex-1">text</h5>
+          <h4 className="text-h4 flex-1">text</h4>
           <div className="hidden md:block text-antd-text-description font-mono text-sm">
             Usage: text-{prefix}-text-base, text-{prefix}-text-secondary
           </div>
@@ -95,7 +95,7 @@ const ExtendColorsPreview = ({ preset }: { preset: Partial<Config> }) => {
       </div>
       <div className="p-4 bg-white rounded">
         <div className="flex">
-          <h5 className="flex-1">fill</h5>
+          <h4 className="text-h4 flex-1">fill</h4>
           <div className="hidden md:block text-antd-text-description font-mono text-sm">
             Usage: bg-{prefix}-fill, bg-{prefix}-fill-secondary
           </div>
@@ -106,7 +106,7 @@ const ExtendColorsPreview = ({ preset }: { preset: Partial<Config> }) => {
       </div>
       <div className="p-4 bg-white rounded">
         <div className="flex">
-          <h5 className="flex-1">background</h5>
+          <h4 className="text-h4 flex-1">background</h4>
           <div className="hidden md:block text-antd-text-description font-mono text-sm">
             Usage: bg-{prefix}-bg-base, bg-{prefix}-bg-fill
           </div>
@@ -117,7 +117,7 @@ const ExtendColorsPreview = ({ preset }: { preset: Partial<Config> }) => {
       </div>
       <div className="p-4 bg-white rounded">
         <div className="flex">
-          <h5 className="flex-1">other colors</h5>
+          <h4 className="text-h4 flex-1">other colors</h4>
           <div className="hidden md:block text-antd-text-description font-mono text-sm">
             Usage: border-{prefix}-border, bg-{prefix}-split
           </div>
@@ -176,12 +176,14 @@ const StatusColorPreviewGrid = ({
   }, [colors, keys])
 
   return (
-    <div ref={containerRef} className="grid grid-rows-3 grid-cols-4 gap-4 place-items-center">
-      <div className="flex flex-col gap-4 items-center justify-center row-span-4">
+    <div ref={containerRef} className="flex flex-row">
+      <div className="hidden lg:flex lg:flex-col px-8 gap-4 items-center justify-center flex-none">
         <button className={cn('demo-button', 'px-4 py-2')}>Button</button>
         <button className={cn('demo-button-plain', 'px-4 py-2')}>Button</button>
       </div>
 
+<div className="flex-1 flex flex-col gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3">
       <div className="flex flex-col items-center justify-center">
         <div
           className="size-4 rounded-full ring-1 ring-offset-2 ring-antd-border"
@@ -206,12 +208,13 @@ const StatusColorPreviewGrid = ({
         <div className="mt-1">{color}-active</div>
         <div className="text-sm text-antd-text-description font-mono">{colors[keys.active]}</div>
       </div>
+      </div>
 
       <div
         className={cn(
-          'w-full col-span-3 grid place-items-center grid-cols-4 gap-4',
-          isWarning && 'grid-cols-5',
-          isError && 'grid-rows-2 grid-cols-4'
+          'w-full grid place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4',
+          isWarning && 'lg:grid-cols-5',
+          isError && 'lg:grid-cols-4'
         )}
       >
         <div className="flex flex-col items-center justify-center">
@@ -286,6 +289,7 @@ const StatusColorPreviewGrid = ({
         )}
       </div>
 
+      <div className="grid grid-cols-1 md:grid-cols-3">
       <div className="flex flex-col items-center justify-center">
         <div
           className="text-lg text-transparent flex items-center justify-center"
@@ -317,6 +321,8 @@ const StatusColorPreviewGrid = ({
         <div className="text-sm text-antd-text-description font-mono">
           {colors[keys.textActive]}
         </div>
+      </div>
+      </div>
       </div>
     </div>
   )
@@ -350,8 +356,8 @@ const LinkColorsPreviewGrid = ({
   }, [colors, keys])
 
   return (
-    <div ref={containerRef} className="grid grid-cols-4 gap-4 place-items-center">
-      <div className="flex flex-col items-center justify-center">
+    <div ref={containerRef} className="grid grid-cols-3 md:grid-cols-4 gap-4 place-items-center">
+      <div className="hidden md:flex flex-col items-center justify-center">
         <a className={cn('demo-link', 'px-4 py-2')} href="#">
           Preview Link
         </a>
@@ -510,7 +516,7 @@ const FillColorsPreviewGrid = ({
     [keys, colors]
   )
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
       {rows.map(({ fillColorName, fillColorValue }) => (
         <div key={'fill-color-' + fillColorName} className="flex flex-col items-center">
           <div
@@ -559,7 +565,7 @@ const BackgroundColorsPreviewGrid = ({
     [keys, colors]
   )
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
       {rows.map(({ bgColorName, bgColorValue }) => (
         <div key={'fill-color-' + bgColorName} className="flex flex-col items-center">
           <div
@@ -594,7 +600,7 @@ const OtherColorsPreviewGrid = ({
   )
 
   return (
-    <div className="grid grid-cols-3">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
       <div className="flex flex-col items-center">
         <div
           className="w-16 h-9 rounded border-2 border-transparent"

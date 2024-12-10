@@ -23,7 +23,7 @@ const BorderRadiusPreview = ({ preset }: { preset: Partial<Config> }) => {
             Usage: radius-sm
           </div>
         </div>
-        <div className="mt-2 grid grid-cols-5 place-items-center">
+        <div className="mt-2 grid grid-cols-2 gap-4 lg:grid-cols-5 place-items-center">
           {radius.map(({ radiusName, radiusValue }) => (
             <div key={'radius-' + radiusName} className="flex flex-col items-center">
               <div className="size-12 bg-primary-6" style={{ borderRadius: radiusValue }} />

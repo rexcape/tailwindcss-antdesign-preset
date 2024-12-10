@@ -1,6 +1,6 @@
 import { App, Button, Collapse, Input, Popover, Splitter, Switch, Tabs } from 'antd'
 import { useEffect, useState } from 'react'
-import { useAsyncFn, useCopyToClipboard, useMap } from 'react-use'
+import { useAsyncFn, useCopyToClipboard, useMap, useMedia } from 'react-use'
 import { IconCopy, IconInfoCircleFilled } from '@tabler/icons-react'
 
 import { Editor } from '@/components/ui/editor'
@@ -11,6 +11,8 @@ import { generateCode, type JSONTheme } from '@/lib/generate'
 import { Link } from '@/components/ui/link'
 
 const GeneratorPage = () => {
+  const isLargeScreen = useMedia('(min-width: 768px)')
+
   const [useDefaultTheme, setUseDefaultTheme] = useState(true)
   const [themeInput, setThemeInput] = useState('')
   const [config, { set: setConfig }] = useMap({
@@ -39,8 +41,8 @@ const GeneratorPage = () => {
   }, [copyState])
 
   return (
-    <Splitter>
-      <Splitter.Panel min="20%">
+    <Splitter layout={isLargeScreen ? 'horizontal' : 'vertical'}>
+      <Splitter.Panel resizable={isLargeScreen} min="20%">
         <div className="bg-antd-bg-container m-2 p-4 flex flex-col gap-y-2 rounded">
           <div className="flex items-center">
             <h3 className="flex-1 text-lg font-medium">Ant Design Theme</h3>
@@ -137,7 +139,7 @@ const GeneratorPage = () => {
           </div>
         </div>
       </Splitter.Panel>
-      <Splitter.Panel min="35%">
+      <Splitter.Panel resizable={isLargeScreen} min="35%">
         <div className="bg-antd-bg-container m-2 p-4 flex flex-col gap-y-2 rounded">
           <div className="flex items-center">
             <h3 className="flex-1 text-lg font-medium">Generated Code</h3>

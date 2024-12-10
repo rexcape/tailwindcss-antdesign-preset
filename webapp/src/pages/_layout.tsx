@@ -6,7 +6,7 @@ const PageLayout = () => {
   return (
     <>
       <Navbar />
-      <main className="flex-grow flex-shrink-0">
+      <main className="md:flex-grow md:flex-shrink-0">
         <Outlet />
       </main>
     </>

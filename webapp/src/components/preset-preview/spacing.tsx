@@ -26,7 +26,7 @@ const SpacingPreview = ({ preset }: { preset: Partial<Config> }) => {
     <div className="flex flex-col gap-2">
       <div className="p-4 bg-white rounded">
         <div className="flex">
-          <h5 className="flex-1">padding</h5>
+          <h4 className="text-h4 flex-1">padding</h4>
           <div className="hidden md:block text-antd-text-description font-mono text-sm">
             Usage: padding-sm, padding-lg
           </div>
@@ -53,7 +53,7 @@ const SpacingPreview = ({ preset }: { preset: Partial<Config> }) => {
       </div>
       <div className="p-4 bg-white rounded">
         <div className="flex">
-          <h5 className="flex-1">margin</h5>
+          <h4 className="text-h4 flex-1">margin</h4>
           <div className="hidden md:block text-antd-text-description font-mono text-sm">
             Usage: margin-sm, margin-lg
           </div>

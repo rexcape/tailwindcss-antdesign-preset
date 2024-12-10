@@ -15,13 +15,13 @@ const SizePreview = ({ preset }: { preset: Partial<Config> }) => {
   return (
     <div className="p-4 bg-white rounded">
       <div className="flex">
-        <h5 className="flex-1">size</h5>
+        <h5 className="flex-1"></h5>
         <div className="hidden md:block text-antd-text-description font-mono text-sm">
           Usage: size-sm, size-unit
         </div>
       </div>
       <div className="mt-1">
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {sizes.map(({ sizingName, sizingValue }) => (
             <div key={'size-' + sizingName} className="flex flex-col items-center gap-1">
               <div className="bg-antd-fill" style={{ width: sizingValue, height: sizingValue }} />

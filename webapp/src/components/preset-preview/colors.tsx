@@ -19,12 +19,12 @@ const ColorsPreview = ({ preset }: { preset: Partial<Config> }) => {
       {colors.map(({ colorName, colorValues }) => (
         <div key={colorName} className="p-4 bg-white rounded">
           <div className="flex">
-            <h5 className="flex-1">{colorName} (default: 6)</h5>
+            <h4 className="text-h4 flex-1">{colorName} (default: 6)</h4>
             <div className="hidden md:block text-antd-text-description font-mono text-sm">
               Usage: bg-{colorName}-1, text-{colorName}-8
             </div>
           </div>
-          <div className="grid grid-cols-10 gap-1 mt-2">
+          <div className="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-10 gap-1 mt-2">
             {colorValues.map((item, idx) => (
               <div key={item + idx} className="flex flex-col items-center">
                 <div className="size-8 rounded" style={{ backgroundColor: item }} />

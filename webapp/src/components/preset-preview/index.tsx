@@ -20,9 +20,9 @@ const PresetPreview = () => {
 
   return (
     <div id="preview-container" className="flex relative py-8">
-      <div className="container flex-1 mx-auto flex flex-col gap-y-4">
+      <div className="container px-4 lg:px-0 flex-1 mx-auto flex flex-col gap-y-4">
         <div className="flex flex-col gap-2">
-          <div className="flex items-center">
+          <div className="flex flex-col md:flex-row md:items-center">
             <h3 id="color" className="text-h3 font-medium flex-1">
               Color
               <Badge type="override" className="ml-2">
@@ -32,7 +32,7 @@ const PresetPreview = () => {
             <Link className="flex-none" href="https://tailwindcss.com/docs/customizing-colors">
               TailwindCSS
             </Link>
-            <Link className="flex-none mx-4" href="https://ant.design/docs/spec/colors">
+            <Link className="flex-none md:mx-4" href="https://ant.design/docs/spec/colors">
               Ant Design
             </Link>
           </div>
@@ -40,7 +40,7 @@ const PresetPreview = () => {
         </div>
 
         <div className="flex flex-col gap-1">
-          <div className="flex items-center">
+          <div className="flex flex-col md:flex-row md:items-center">
             <h3 id="font-size" className="text-h3 font-medium flex-1">
               Font Size
               <Badge type="override" className="ml-2">
@@ -51,7 +51,7 @@ const PresetPreview = () => {
               TailwindCSS
             </Link>
             <Link
-              className="flex-none mx-4"
+              className="flex-none md:mx-4"
               href="https://ant.design/docs/react/customize-theme#maptoken"
             >
               Ant Design
@@ -61,7 +61,7 @@ const PresetPreview = () => {
         </div>
 
         <div className="flex flex-col gap-1">
-          <div className="flex items-center">
+          <div className="flex flex-col md:flex-row md:items-center">
             <h3 id="border-radius" className="text-h3 font-medium flex-1">
               Border Radius
               <Badge type="override" className="ml-2">
@@ -72,7 +72,7 @@ const PresetPreview = () => {
               TailwindCSS
             </Link>
             <Link
-              className="flex-none mx-4"
+              className="flex-none md:mx-4"
               href="https://ant.design/docs/react/customize-theme#maptoken"
             >
               Ant Design
@@ -82,7 +82,7 @@ const PresetPreview = () => {
         </div>
 
         <div className="flex flex-col gap-1">
-          <div className="flex items-center">
+          <div className="flex flex-col md:flex-row md:items-center">
             <h3 id="screen" className="text-h3 font-medium flex-1">
               Screens
               <Badge type="override" className="ml-2">
@@ -93,7 +93,7 @@ const PresetPreview = () => {
               TailwindCSS
             </Link>
             <Link
-              className="flex-none mx-4"
+              className="flex-none md:mx-4"
               href="https://ant.design/docs/react/customize-theme#aliastoken"
             >
               Ant Design
@@ -103,7 +103,7 @@ const PresetPreview = () => {
         </div>
 
         <div className="flex flex-col gap-1">
-          <div className="flex items-center">
+          <div className="flex flex-col md:flex-row md:items-center">
             <h3 id="semantic-color" className="text-h3 font-medium flex-1">
               Semantic color
               <Badge type="extend" className="ml-2">
@@ -113,7 +113,7 @@ const PresetPreview = () => {
             <Link className="flex-none" href="https://tailwindcss.com/docs/customizing-colors">
               TailwindCSS
             </Link>
-            <Link className="flex-none mx-4" href="https://ant.design/docs/spec/colors">
+            <Link className="flex-none md:mx-4" href="https://ant.design/docs/spec/colors">
               Ant Design
             </Link>
           </div>
@@ -121,7 +121,7 @@ const PresetPreview = () => {
         </div>
 
         <div className="flex flex-col gap-1">
-          <div className="flex items-center">
+          <div className="flex flex-col md:flex-row md:items-center">
             <h3 id="shadow" className="text-h3 font-medium flex-1">
               Shadow
               <Badge type="extend" className="ml-2">
@@ -132,7 +132,7 @@ const PresetPreview = () => {
               TailwindCSS
             </Link>
             <Link
-              className="flex-none mx-4"
+              className="flex-none md:mx-4"
               href="https://ant.design/docs/react/customize-theme#aliastoken"
             >
               Ant Design
@@ -142,7 +142,7 @@ const PresetPreview = () => {
         </div>
 
         <div className="flex flex-col gap-1">
-          <div className="flex items-center">
+          <div className="flex flex-col md:flex-row md:items-center">
             <h3 id="spacing" className="text-h3 font-medium flex-1">
               Spacing
               <Badge type="extend" className="ml-2">
@@ -153,7 +153,7 @@ const PresetPreview = () => {
               TailwindCSS
             </Link>
             <Link
-              className="flex-none mx-4"
+              className="flex-none md:mx-4"
               href="https://ant.design/docs/react/customize-theme#aliastoken"
             >
               Ant Design
@@ -163,7 +163,7 @@ const PresetPreview = () => {
         </div>
 
         <div className="flex flex-col gap-1">
-          <div className="flex items-center">
+          <div className="flex flex-col md:flex-row md:items-center">
             <h3 id="size" className="text-h3 font-medium flex-1">
               Size
               <Badge type="extend" className="ml-2">
@@ -174,7 +174,7 @@ const PresetPreview = () => {
               TailwindCSS
             </Link>
             <Link
-              className="flex-none mx-4"
+              className="flex-none md:mx-4"
               href="https://ant.design/docs/react/customize-theme#aliastoken"
             >
               Ant Design
