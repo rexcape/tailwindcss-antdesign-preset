@@ -20,7 +20,7 @@ const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(({ className, ...pro
 
 const Navbar = () => {
   return (
-    <nav className="bg-white shadow-lg flex-none sticky top-0 z-20">
+    <nav className="bg-white shadow flex-none sticky top-0 z-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 justify-between">
           <div className="flex">
