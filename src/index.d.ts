@@ -3,7 +3,7 @@ import { Config } from 'tailwindcss'
 
 export interface PluginOptions {
   theme?: ThemeConfig
-  colorPrefix?: string
+  semanticColorPrefix?: string
 }
 
 /**

@@ -44,14 +44,15 @@ const LINE_HEIGHT_REGEXP = new RegExp('^lineHeight(?<size>\\w+)?$')
 
 const defaultPluginOptions = {
   theme: undefined,
-  colorPrefix: 'antd',
+  semanticColorPrefix: 'antd',
 }
 
-const createPreset = (pluginOptions = defaultPluginOptions) => {
-  const { theme: customTheme, colorPrefix } = {
-    ...pluginOptions,
+const createPreset = (pluginOptions) => {
+  const { theme: customTheme, semanticColorPrefix } = {
     ...defaultPluginOptions,
-    colorPrefix: pluginOptions?.colorPrefix || defaultPluginOptions.colorPrefix,
+    ...pluginOptions,
+    semanticColorPrefix:
+      pluginOptions?.semanticColorPrefix || defaultPluginOptions.semanticColorPrefix,
   }
 
   const tokens = theme.getDesignToken(customTheme)
@@ -93,7 +94,7 @@ const createPreset = (pluginOptions = defaultPluginOptions) => {
     } else if (COLOR_EXTEND_REGEXP.test(k)) {
       const matches = COLOR_EXTEND_REGEXP.exec(k)
       if (matches) {
-        const color = `${colorPrefix}-${kebabCase(matches.groups.name)}`
+        const color = `${semanticColorPrefix}-${kebabCase(matches.groups.name)}`
         merge(preset.theme.extend.colors, { [color]: val })
       }
     } else if (FONT_SIZE_REGEXP.test(k)) {

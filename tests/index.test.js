@@ -70,18 +70,18 @@ describe('use custom fonts', () => {
 
 describe('pass an empty color prefix', () => {
   test('empty color prefix works', () => {
-    const result = createPreset({ colorPrefix: '' })
+    const result = createPreset({ semanticColorPrefix: '' })
     assert(Object.entries(result.theme.extend.colors).every((item) => item[0].startsWith('antd-')))
   })
 })
 
 describe('use custom color prefix', () => {
   test('custom color prefix works', () => {
-    const customColorPrefix = 'color'
-    const result = createPreset({ colorPrefix: customColorPrefix })
+    const customSemanticColorPrefix = 'color'
+    const result = createPreset({ semanticColorPrefix: customSemanticColorPrefix })
     assert(
       Object.entries(result.theme.extend.colors).every((item) =>
-        item[0].startsWith(customColorPrefix + '-')
+        item[0].startsWith(customSemanticColorPrefix + '-')
       )
     )
   })

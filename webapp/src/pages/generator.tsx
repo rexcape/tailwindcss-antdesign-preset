@@ -16,7 +16,7 @@ const GeneratorPage = () => {
   const [useDefaultTheme, setUseDefaultTheme] = useState(true)
   const [themeInput, setThemeInput] = useState('')
   const [config, { set: setConfig }] = useMap({
-    colorPrefix: '',
+    semanticColorPrefix: '',
   })
 
   const [{ loading, value, error }, generate] = useAsyncFn(async () => {
@@ -116,10 +116,10 @@ const GeneratorPage = () => {
                       <Input
                         id="option-color-prefix"
                         className="col-span-2 sm:col-span-1"
-                        value={config.colorPrefix}
+                        value={config.semanticColorPrefix}
                         placeholder="antd"
                         onChange={(e) => {
-                          setConfig('colorPrefix', e.target.value)
+                          setConfig('semanticColorPrefix', e.target.value)
                         }}
                       />
                     </div>
