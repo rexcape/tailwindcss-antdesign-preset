@@ -25,9 +25,9 @@ const Navbar = () => {
         <div className="flex h-16 justify-between">
           <div className="flex">
             <div className="flex shrink-0 items-center">
-              <h1 className="text-xl font-bold select-none">TailwindCSS Ant Design</h1>
+              <h3 className="text-h3 font-medium select-none">TailwindCSS Ant Design</h3>
             </div>
-            <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+            <div className="hidden sm:ml-10 sm:flex sm:space-x-8">
               <NavLink to="/">Generator</NavLink>
               <NavLink to="/preview">Preview</NavLink>
               <NavLink to="/docs">Docs</NavLink>
