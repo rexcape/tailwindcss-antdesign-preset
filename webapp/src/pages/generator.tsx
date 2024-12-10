@@ -1,10 +1,9 @@
-import { App, Button, Collapse, Input, Popover, Switch, Tabs } from 'antd'
+import { App, Button, Collapse, Input, Popover, Splitter, Switch, Tabs } from 'antd'
 import { useEffect, useState } from 'react'
 import { useAsyncFn, useCopyToClipboard, useMap } from 'react-use'
 import { IconCopy, IconInfoCircleFilled } from '@tabler/icons-react'
 
 import { Editor } from '@/components/ui/editor'
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable'
 import { Loading } from '@/components/loading'
 import { CodeHighlight } from '@/components/code-highlight'
 
@@ -40,8 +39,8 @@ const GeneratorPage = () => {
   }, [copyState])
 
   return (
-    <ResizablePanelGroup direction="horizontal">
-      <ResizablePanel minSize={35}>
+    <Splitter>
+      <Splitter.Panel min="20%">
         <div className="bg-antd-bg-container m-2 p-4 flex flex-col gap-y-2 rounded">
           <div className="flex items-center">
             <h3 className="flex-1 text-lg font-medium">Ant Design Theme</h3>
@@ -137,9 +136,8 @@ const GeneratorPage = () => {
             </Button>
           </div>
         </div>
-      </ResizablePanel>
-      <ResizableHandle withHandle />
-      <ResizablePanel minSize={35}>
+      </Splitter.Panel>
+      <Splitter.Panel min="35%">
         <div className="bg-antd-bg-container m-2 p-4 flex flex-col gap-y-2 rounded">
           <div className="flex items-center">
             <h3 className="flex-1 text-lg font-medium">Generated Code</h3>
@@ -158,7 +156,7 @@ const GeneratorPage = () => {
                     children: (
                       <div className="flex flex-col gap-2">
                         <p className="text-antd-text-description">
-                          Copy into your tailwind config file, combine with{' '}
+                          Copy into your tailwind config file, edit and combine with{' '}
                           <Link
                             target="_blank"
                             href="https://github.com/tailwindlabs/tailwindcss/blob/main/stubs/config.full.js"
@@ -213,8 +211,8 @@ const GeneratorPage = () => {
             )}
           </div>
         </div>
-      </ResizablePanel>
-    </ResizablePanelGroup>
+      </Splitter.Panel>
+    </Splitter>
   )
 }
 
