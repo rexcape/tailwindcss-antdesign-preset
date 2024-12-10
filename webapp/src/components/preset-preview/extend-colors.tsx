@@ -182,147 +182,157 @@ const StatusColorPreviewGrid = ({
         <button className={cn('demo-button-plain', 'px-4 py-2')}>Button</button>
       </div>
 
-<div className="flex-1 flex flex-col gap-4">
-      <div className="grid grid-cols-1 md:grid-cols-3">
-      <div className="flex flex-col items-center justify-center">
-        <div
-          className="size-4 rounded-full ring-1 ring-offset-2 ring-antd-border"
-          style={{ backgroundColor: colors[keys.default] }}
-        />
-        <div className="mt-1">{color}</div>
-        <div className="text-sm text-antd-text-description font-mono">{colors[keys.default]}</div>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <div
-          className="size-4 rounded-full ring-1 ring-offset-2 ring-antd-border"
-          style={{ backgroundColor: colors[keys.hover] }}
-        />
-        <div className="mt-1">{color}-hover</div>
-        <div className="text-sm text-antd-text-description font-mono">{colors[keys.hover]}</div>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <div
-          className="size-4 rounded-full ring-1 ring-offset-2 ring-antd-border"
-          style={{ backgroundColor: colors[keys.active] }}
-        />
-        <div className="mt-1">{color}-active</div>
-        <div className="text-sm text-antd-text-description font-mono">{colors[keys.active]}</div>
-      </div>
-      </div>
+      <div className="flex-1 flex flex-col gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3">
+          <div className="flex flex-col items-center justify-center">
+            <div
+              className="size-4 rounded-full ring-1 ring-offset-2 ring-antd-border"
+              style={{ backgroundColor: colors[keys.default] }}
+            />
+            <div className="mt-1">{color}</div>
+            <div className="text-sm text-antd-text-description font-mono">
+              {colors[keys.default]}
+            </div>
+          </div>
+          <div className="flex flex-col items-center justify-center">
+            <div
+              className="size-4 rounded-full ring-1 ring-offset-2 ring-antd-border"
+              style={{ backgroundColor: colors[keys.hover] }}
+            />
+            <div className="mt-1">{color}-hover</div>
+            <div className="text-sm text-antd-text-description font-mono">{colors[keys.hover]}</div>
+          </div>
+          <div className="flex flex-col items-center justify-center">
+            <div
+              className="size-4 rounded-full ring-1 ring-offset-2 ring-antd-border"
+              style={{ backgroundColor: colors[keys.active] }}
+            />
+            <div className="mt-1">{color}-active</div>
+            <div className="text-sm text-antd-text-description font-mono">
+              {colors[keys.active]}
+            </div>
+          </div>
+        </div>
 
-      <div
-        className={cn(
-          'w-full grid place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4',
-          isWarning && 'lg:grid-cols-5',
-          isError && 'lg:grid-cols-4'
-        )}
-      >
-        <div className="flex flex-col items-center justify-center">
-          <div
-            className="w-12 h-8 border-2 rounded border-transparent"
-            style={{ backgroundColor: colors[keys.bg] }}
-          />
-          <div className="mt-1">{color}-bg</div>
-          <div className="text-sm text-antd-text-description font-mono">{colors[keys.bg]}</div>
-        </div>
-        <div className="flex flex-col items-center justify-center">
-          <div
-            className="w-12 h-8 border-2 rounded border-transparent"
-            style={{ backgroundColor: colors[keys.bgHover] }}
-          />
-          <div className="mt-1">{color}-bg-hover</div>
-          <div className="text-sm text-antd-text-description font-mono">{colors[keys.bgHover]}</div>
-        </div>
-        {isError && (
+        <div
+          className={cn(
+            'w-full grid place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4',
+            isWarning && 'lg:grid-cols-5',
+            isError && 'lg:grid-cols-4'
+          )}
+        >
           <div className="flex flex-col items-center justify-center">
             <div
               className="w-12 h-8 border-2 rounded border-transparent"
-              style={{ backgroundColor: colors[keys.bgFilledHover] }}
+              style={{ backgroundColor: colors[keys.bg] }}
             />
-            <div className="mt-1">{color}-bg-filled-hover</div>
-            <div className="text-sm text-antd-text-description font-mono">
-              {colors[keys.bgFilledHover]}
-            </div>
+            <div className="mt-1">{color}-bg</div>
+            <div className="text-sm text-antd-text-description font-mono">{colors[keys.bg]}</div>
           </div>
-        )}
-        {isError && (
           <div className="flex flex-col items-center justify-center">
             <div
               className="w-12 h-8 border-2 rounded border-transparent"
-              style={{ backgroundColor: colors[keys.bgActive] }}
+              style={{ backgroundColor: colors[keys.bgHover] }}
             />
-            <div className="mt-1">{color}-bg-active</div>
+            <div className="mt-1">{color}-bg-hover</div>
             <div className="text-sm text-antd-text-description font-mono">
-              {colors[keys.bgActive]}
+              {colors[keys.bgHover]}
             </div>
           </div>
-        )}
-        <div className="flex flex-col items-center justify-center">
-          <div
-            className="w-12 h-8 border-2 rounded border-transparent"
-            style={{ borderColor: colors[keys.border] }}
-          />
-          <div className="mt-1">{color}-border</div>
-          <div className="text-sm text-antd-text-description font-mono">{colors[keys.border]}</div>
-        </div>
-        <div className="flex flex-col items-center justify-center">
-          <div
-            className="w-12 h-8 border-2 rounded border-transparent"
-            style={{ borderColor: colors[keys.borderHover] }}
-          />
-          <div className="mt-1">{color}-border-hover</div>
-          <div className="text-sm text-antd-text-description font-mono">
-            {colors[keys.borderHover]}
-          </div>
-        </div>
-        {(isWarning || isError) && (
+          {isError && (
+            <div className="flex flex-col items-center justify-center">
+              <div
+                className="w-12 h-8 border-2 rounded border-transparent"
+                style={{ backgroundColor: colors[keys.bgFilledHover] }}
+              />
+              <div className="mt-1">{color}-bg-filled-hover</div>
+              <div className="text-sm text-antd-text-description font-mono">
+                {colors[keys.bgFilledHover]}
+              </div>
+            </div>
+          )}
+          {isError && (
+            <div className="flex flex-col items-center justify-center">
+              <div
+                className="w-12 h-8 border-2 rounded border-transparent"
+                style={{ backgroundColor: colors[keys.bgActive] }}
+              />
+              <div className="mt-1">{color}-bg-active</div>
+              <div className="text-sm text-antd-text-description font-mono">
+                {colors[keys.bgActive]}
+              </div>
+            </div>
+          )}
           <div className="flex flex-col items-center justify-center">
             <div
-              className="w-12 h-8 border-2 rounded border-transparent outline outline-4 outline-offset-1"
-              style={{ outlineColor: colors[keys.outline] }}
+              className="w-12 h-8 border-2 rounded border-transparent"
+              style={{ borderColor: colors[keys.border] }}
             />
-            <div className="mt-1">{color}-outline</div>
+            <div className="mt-1">{color}-border</div>
             <div className="text-sm text-antd-text-description font-mono">
-              {colors[keys.outline]}
+              {colors[keys.border]}
             </div>
           </div>
-        )}
-      </div>
+          <div className="flex flex-col items-center justify-center">
+            <div
+              className="w-12 h-8 border-2 rounded border-transparent"
+              style={{ borderColor: colors[keys.borderHover] }}
+            />
+            <div className="mt-1">{color}-border-hover</div>
+            <div className="text-sm text-antd-text-description font-mono">
+              {colors[keys.borderHover]}
+            </div>
+          </div>
+          {(isWarning || isError) && (
+            <div className="flex flex-col items-center justify-center">
+              <div
+                className="w-12 h-8 border-2 rounded border-transparent outline outline-4 outline-offset-1"
+                style={{ outlineColor: colors[keys.outline] }}
+              />
+              <div className="mt-1">{color}-outline</div>
+              <div className="text-sm text-antd-text-description font-mono">
+                {colors[keys.outline]}
+              </div>
+            </div>
+          )}
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3">
-      <div className="flex flex-col items-center justify-center">
-        <div
-          className="text-lg text-transparent flex items-center justify-center"
-          style={{ color: colors[keys.text] }}
-        >
-          Text
+        <div className="grid grid-cols-1 md:grid-cols-3">
+          <div className="flex flex-col items-center justify-center">
+            <div
+              className="text-lg text-transparent flex items-center justify-center"
+              style={{ color: colors[keys.text] }}
+            >
+              Text
+            </div>
+            <div className="mt-1">{color}-text</div>
+            <div className="text-sm text-antd-text-description font-mono">{colors[keys.text]}</div>
+          </div>
+          <div className="flex flex-col items-center justify-center">
+            <div
+              className="text-lg text-transparent flex items-center justify-center"
+              style={{ color: colors[keys.textHover] }}
+            >
+              Text
+            </div>
+            <div className="mt-1">{color}-text-hover</div>
+            <div className="text-sm text-antd-text-description font-mono">
+              {colors[keys.textHover]}
+            </div>
+          </div>
+          <div className="flex flex-col items-center justify-center">
+            <div
+              className="text-lg text-transparent flex items-center justify-center"
+              style={{ color: colors[keys.textActive] }}
+            >
+              Text
+            </div>
+            <div className="mt-1">{color}-text-active</div>
+            <div className="text-sm text-antd-text-description font-mono">
+              {colors[keys.textActive]}
+            </div>
+          </div>
         </div>
-        <div className="mt-1">{color}-text</div>
-        <div className="text-sm text-antd-text-description font-mono">{colors[keys.text]}</div>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <div
-          className="text-lg text-transparent flex items-center justify-center"
-          style={{ color: colors[keys.textHover] }}
-        >
-          Text
-        </div>
-        <div className="mt-1">{color}-text-hover</div>
-        <div className="text-sm text-antd-text-description font-mono">{colors[keys.textHover]}</div>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <div
-          className="text-lg text-transparent flex items-center justify-center"
-          style={{ color: colors[keys.textActive] }}
-        >
-          Text
-        </div>
-        <div className="mt-1">{color}-text-active</div>
-        <div className="text-sm text-antd-text-description font-mono">
-          {colors[keys.textActive]}
-        </div>
-      </div>
-      </div>
       </div>
     </div>
   )
