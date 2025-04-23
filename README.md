@@ -1,6 +1,6 @@
 # tailwindcss-antdesign-preset
 
-Make [ant design tokens](https://ant.design/docs/react/customize-theme#seedtoken) to a tailwindcss theme config [preset](https://tailwindcss.com/docs/presets)
+Turn [ant design tokens](https://ant.design/docs/react/customize-theme#seedtoken) into a tailwindcss theme config [preset](https://tailwindcss.com/docs/presets)
 
 Result on custom components
 
